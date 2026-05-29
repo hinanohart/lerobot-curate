@@ -42,3 +42,7 @@ htmlcov/
 /_materialized/
 /_scratch/
 experiments/_wip/**/*.log
+
+# --- autonomous build-loop state (orchestration only; not part of the package) ---
+.lerobot-curate-progress.json
+.lerobot-curate.lock

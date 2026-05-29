@@ -27,6 +27,7 @@ from .ir import (
     CurationReport,
     DropReason,
     EpisodeRef,
+    EpisodeSignature,
     FrameEmbedding,
     MislabelFlag,
     MislabelStatus,
@@ -71,19 +72,29 @@ def _embed_episodes(
 def _feature_matrix(
     reader: LeRobotV3Reader, refs: list[EpisodeRef], fes: list[FrameEmbedding], config: CurateConfig
 ) -> tuple[np.ndarray, str]:
-    """Per-episode diversity features: path signature if available for all, else image means."""
-    feats: list[np.ndarray] = []
+    """Per-episode diversity features: path signature if available for all, else image means.
+
+    Each signature is wrapped in an ``EpisodeSignature`` so its machine-readable
+    ``intra-dataset-only`` scope invariant is enforced on real pipeline data, not
+    only in tests.
+    """
+    sigs: list[EpisodeSignature] = []
     ok = True
     for ref in refs:
         try:
-            feats.append(
-                signature_features(reader.episode_path(ref.episode_index), depth=config.sig_depth)
+            coeffs = signature_features(
+                reader.episode_path(ref.episode_index), depth=config.sig_depth
+            )
+            sigs.append(
+                EpisodeSignature(
+                    ref.episode_index, coeffs, depth=config.sig_depth, rff_dim=config.rff_dim
+                )
             )
         except (ValueError, NotImplementedError):
             ok = False
             break
-    if ok and feats and len({f.shape[0] for f in feats}) == 1:
-        return np.stack(feats), "signature"
+    if ok and sigs and len({s.coeffs.shape[0] for s in sigs}) == 1:
+        return np.stack([s.coeffs for s in sigs]), "signature"
     return np.stack([fe.mean_vector for fe in fes]), "embedding"
 
 

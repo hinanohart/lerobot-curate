@@ -24,7 +24,7 @@ ready-to-train LeRobot v3 dataset. Core is **torch-free**.
 | **Diversity subset selection** | Truncated path-signature kernel (depth 3) → random Fourier features → von-Neumann/Vendi diversity → budget subset (greedy/DPP) | a1 |
 | **Cross-modal mislabel flagging** | task-text vs frame-image cosine; missing/degenerate descriptions reported as `not-evaluated` (never silently passed) | a1 |
 | Cross-dataset coverage (optimal transport) | — | v0.1.1 roadmap |
-| kNN-MI redundancy | use [`democlean`](https://github.com/dipampaul17/democlean) and `--import-democlean` | interop |
+| kNN-MI redundancy | use [`democlean`](https://github.com/dipampaul17/democlean) (a separate tool) | out of scope |
 
 ## Install
 

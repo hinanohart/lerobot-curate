@@ -29,6 +29,9 @@ def test_pipeline_budget_respected(tmp_path):
     assert result.n_kept <= 4
     assert report.n_episodes_out <= 4
     assert "feature_mode" in report.diversity
+    # synthetic episodes carry state+action -> signature features (not embedding fallback)
+    assert report.provenance["feature_mode"] == "signature"
+    assert report.diversity["feature_mode"] == "signature"
 
 
 def test_pipeline_report_json_roundtrips(tmp_path):
