@@ -3,9 +3,10 @@
   "product": "lerobot-curate",
   "repo_slug": "hinanohart/lerobot-curate",
   "protocol_version": "1.0",
-  "current_step": "S0_5",
+  "current_step": "S1",
   "completed_steps": [
-    "S0"
+    "S0",
+    "S0_5"
   ],
   "step_attempts": 0,
   "decisions": {
@@ -141,7 +142,7 @@
   },
   "checklist": {
     "S0": true,
-    "S0_5": false,
+    "S0_5": true,
     "S1": false,
     "S2": false,
     "S3": false,
@@ -154,7 +155,7 @@
     "S10": false,
     "S11": false
   },
-  "next_action": "S0.5 scaffold: src layout, pyproject (hatchling), LICENSE Apache-2.0, NOTICE matrix, .gitignore (*.onnx etc), README stub (all numbers MEASURED@S6 placeholder), verify_step.py + heartbeat.py, CI yaml skeleton, git init",
+  "next_action": "S1: normative IR dataclasses (EpisodeRef, FrameEmbedding, EpisodeSignature, SelectionResult, CurationReport) + IR tests",
   "blockers": [],
   "wip_quarantine": [],
   "retry_counts": {},
