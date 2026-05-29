@@ -7,7 +7,7 @@ does not reproduce any policy-training numbers.
 
 The suboptimal proxies (embedding-jump p95, action reversal ratio, action
 quiescence) are heuristics for "this episode looks erratic or idle". They are
-proxies only — not validated against downstream policy success.
+proxies only — not validated against downstream task outcomes.
 """
 
 from __future__ import annotations

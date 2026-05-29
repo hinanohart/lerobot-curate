@@ -51,23 +51,42 @@ lerobot-curate curate <hf_repo_id> --budget 200 --push-to ./_materialized/my-sub
 Example output (illustrative, regenerated from `results/` at release):
 
 ```
+# illustrative shape of the output (not measured numbers)
 kept 200 / 1000 episodes   dropped: 612 near-duplicate, 173 low-diversity, 15 mislabel-suspected
-diversity (Vendi):  <!--MEASURED@S6-->
 bytes downloaded:   0 GB (streamed)
 ```
 
 ## Scope & honesty
 
-- **No policy-performance claims.** The papers this re-implements report
-  downstream policy-success improvements; reproducing those needs GPU policy
-  training and is **out of scope** here. We validate only that the selection
-  algorithms behave correctly (dedup recall/precision on injected duplicates,
-  mislabel precision on injected label swaps, monotone diversity under injected
-  redundancy, near-zero false positives on clean data).
-- **Measured numbers** in this README are generated from `results/` —
-  not hand-written. Placeholders marked `MEASURED@S6` are filled at release.
+- **No policy-performance claims.** The upstream papers report downstream
+  improvements when a policy is trained on the selected data; reproducing those
+  needs GPU policy training and is **out of scope** here. We validate only that
+  the selection algorithms behave correctly (dedup recall/precision on injected
+  duplicates, mislabel precision on injected label swaps, monotone diversity
+  under injected redundancy, near-zero false positives on clean data).
+- **Measured numbers** below are generated from
+  `results/v0.1.0a1_metrics.json` — not hand-written.
 - **Mislabel results degrade honestly**: episodes without usable task text are
   reported as `not-evaluated`, never as `ok`.
+
+## Validation results
+
+Algorithm-correctness metrics on synthetic data with injected ground truth
+(deterministic, CPU; regenerate with `python scripts/run_metrics.py`). These
+measure selection-algorithm correctness only — not policy performance.
+
+<!-- METRICS:START -->
+| metric | value |
+|---|---|
+| dedup recall (injected exact duplicates) | 1.0 |
+| dedup precision | 1.0 |
+| mislabel precision (injected label swaps) | 1.0 |
+| mislabel recall | 1.0 |
+| diversity monotone under redundancy (Spearman rho) | -0.9999999999999999 |
+| clean-data false-positive rate | 0.0 |
+
+_mode: synthetic; python 3.12.3; lerobot-curate 0.1.0a1; seed 0_
+<!-- METRICS:END -->
 
 ## License
 

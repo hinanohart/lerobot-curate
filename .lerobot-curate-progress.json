@@ -3,7 +3,7 @@
   "product": "lerobot-curate",
   "repo_slug": "hinanohart/lerobot-curate",
   "protocol_version": "1.0",
-  "current_step": "S6",
+  "current_step": "S7",
   "completed_steps": [
     "S0",
     "S0_5",
@@ -11,7 +11,8 @@
     "S2",
     "S3",
     "S4",
-    "S5"
+    "S5",
+    "S6"
   ],
   "step_attempts": 0,
   "decisions": {
@@ -108,27 +109,27 @@
     }
   },
   "measured": {
-    "dedup_recall": null,
-    "dedup_precision": null,
-    "diversity_monotonic": null,
-    "mislabel_precision": null,
-    "negative_fpr": null,
+    "dedup_recall": 1.0,
+    "dedup_precision": 1.0,
+    "diversity_monotonic": true,
+    "mislabel_precision": 1.0,
+    "negative_fpr": 0.0,
     "dataset": {
-      "id": null,
-      "n": null,
-      "mode": null,
-      "source": null
+      "id": "synthetic-injected",
+      "n": 14,
+      "mode": "synthetic",
+      "source": "make_synthetic_v3"
     },
     "env": {
-      "hw": null,
-      "os": null,
-      "python": null,
-      "date": null,
-      "seed": null,
-      "version": null
+      "hw": "x86_64",
+      "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+      "python": "3.12.3",
+      "date": "2026-05-29",
+      "seed": 0,
+      "version": "0.1.0a1"
     },
-    "results_path": null,
-    "disclaimer_required": null,
+    "results_path": "/home/runza/lerobot-curate/results/v0.1.0a1_metrics.json",
+    "disclaimer_required": true,
     "reproduced_in_clean_clone": false
   },
   "critic": {
@@ -153,14 +154,14 @@
     "S3": true,
     "S4": true,
     "S5": true,
-    "S6": false,
+    "S6": true,
     "S7": false,
     "S8": false,
     "S9": false,
     "S10": false,
     "S11": false
   },
-  "next_action": "S6: real metric measurement (anti-theater two-layer). S6a synthetic always: dup-injection recall/precision, label-swap mislabel precision, redundancy->Vendi monotone, clean-data FPR. Write results/v0.1.0a1_metrics.json with env-stamp. policy/perf numbers machine-forbidden.",
+  "next_action": "S7: README honest-ization - regenerate all numbers from results/*.json (no hand-written), fill MEASURED@S6 placeholders, ensure verbatim disclaimer + honest-marketing grep rc=0",
   "blockers": [],
   "wip_quarantine": [],
   "retry_counts": {},
