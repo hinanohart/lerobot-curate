@@ -42,7 +42,10 @@ def doctor() -> list[BackendStatus]:
             else "needs tokenizers (in [onnx]); text head enables mislabel",
         ),
         BackendStatus(
-            "embedder:hf-api", True, "opt-in, OFF by default; free tier is rate-limited (degraded)"
+            "embedder:hf-api",
+            True,
+            "opt-in (OFF by default); a1: text head only — image embedding not implemented; "
+            "free tier is rate-limited (degraded)",
         ),
         BackendStatus(
             "frame-decode:pyav",

@@ -47,7 +47,6 @@ class DropReason(StrEnum):
     LOW_DIVERSITY = "low-diversity"
     SUBOPTIMAL = "suboptimal"
     MISLABEL_SUSPECTED = "mislabel-suspected"
-    OVER_BUDGET = "over-budget"
 
 
 class MislabelStatus(StrEnum):
