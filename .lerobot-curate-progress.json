@@ -3,10 +3,11 @@
   "product": "lerobot-curate",
   "repo_slug": "hinanohart/lerobot-curate",
   "protocol_version": "1.0",
-  "current_step": "S1",
+  "current_step": "S2",
   "completed_steps": [
     "S0",
-    "S0_5"
+    "S0_5",
+    "S1"
   ],
   "step_attempts": 0,
   "decisions": {
@@ -143,7 +144,7 @@
   "checklist": {
     "S0": true,
     "S0_5": true,
-    "S1": false,
+    "S1": true,
     "S2": false,
     "S3": false,
     "S4": false,
@@ -155,7 +156,7 @@
     "S10": false,
     "S11": false
   },
-  "next_action": "S1: normative IR dataclasses (EpisodeRef, FrameEmbedding, EpisodeSignature, SelectionResult, CurationReport) + IR tests",
+  "next_action": "S2: core/signature.py (pure-numpy truncated path signature depth=3, time-aug, lead-lag, torch-free) + core/diversity.py (RFF->Gram->von-Neumann entropy->Vendi->greedy/DPP budget subset). Property tests: Chen identity, shuffle product, known-path analytic. Golden vs vendi-score.",
   "blockers": [],
   "wip_quarantine": [],
   "retry_counts": {},
@@ -167,7 +168,7 @@
   "session_lock": {
     "pid": 3462528,
     "started_at_utc": "2026-05-29T03:24:06Z",
-    "last_heartbeat_utc": "2026-05-29T03:30:06Z"
+    "last_heartbeat_utc": "2026-05-29T03:39:50Z"
   },
   "ci_last_green_sha": null,
   "fallback_log": [],

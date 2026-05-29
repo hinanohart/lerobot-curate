@@ -83,6 +83,10 @@ files = ["src/lerobot_curate"]
 [tool.pytest.ini_options]
 addopts = "-q"
 testpaths = ["tests"]
+filterwarnings = [
+    # vendi-score 0.0.3 triggers a scipy.sparse deprecation internally (not our code)
+    "ignore:.*scipy.sparse.csr.*:DeprecationWarning",
+]
 markers = [
     "live: requires real ONNX embedder weights or network (skipped by default)",
     "hf_api: requires Hugging Face Inference API credentials",
