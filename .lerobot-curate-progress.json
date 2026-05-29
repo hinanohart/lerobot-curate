@@ -3,14 +3,15 @@
   "product": "lerobot-curate",
   "repo_slug": "hinanohart/lerobot-curate",
   "protocol_version": "1.0",
-  "current_step": "S5",
+  "current_step": "S6",
   "completed_steps": [
     "S0",
     "S0_5",
     "S1",
     "S2",
     "S3",
-    "S4"
+    "S4",
+    "S5"
   ],
   "step_attempts": 0,
   "decisions": {
@@ -151,7 +152,7 @@
     "S2": true,
     "S3": true,
     "S4": true,
-    "S5": false,
+    "S5": true,
     "S6": false,
     "S7": false,
     "S8": false,
@@ -159,7 +160,7 @@
     "S10": false,
     "S11": false
   },
-  "next_action": "S5: io/materialize.py (derived LeRobot-v3 dataset writer = killer hook) + cli.py (Typer: curate/doctor/report/dedup/diversity/mislabel/select/export-fiftyone) + [project.scripts] entry",
+  "next_action": "S6: real metric measurement (anti-theater two-layer). S6a synthetic always: dup-injection recall/precision, label-swap mislabel precision, redundancy->Vendi monotone, clean-data FPR. Write results/v0.1.0a1_metrics.json with env-stamp. policy/perf numbers machine-forbidden.",
   "blockers": [],
   "wip_quarantine": [],
   "retry_counts": {},

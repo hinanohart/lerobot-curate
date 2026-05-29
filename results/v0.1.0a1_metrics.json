@@ -1,0 +1,27 @@
+{
+  "dedup_recall": 1.0,
+  "dedup_precision": 1.0,
+  "mislabel_precision": 1.0,
+  "mislabel_recall": 1.0,
+  "diversity_spearman_rho": -0.9999999999999999,
+  "diversity_monotonic": true,
+  "negative_fpr_dedup": 0.0,
+  "negative_fpr_mislabel": 0.0,
+  "negative_fpr": 0.0,
+  "dataset": {
+    "id": "synthetic-injected",
+    "n": 14,
+    "mode": "synthetic",
+    "source": "make_synthetic_v3"
+  },
+  "disclaimer_required": true,
+  "env": {
+    "hw": "x86_64",
+    "os": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "date": "2026-05-29",
+    "seed": 0,
+    "version": "0.1.0a1"
+  },
+  "results_path": "/home/runza/lerobot-curate/results/v0.1.0a1_metrics.json"
+}
