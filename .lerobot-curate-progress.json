@@ -3,11 +3,12 @@
   "product": "lerobot-curate",
   "repo_slug": "hinanohart/lerobot-curate",
   "protocol_version": "1.0",
-  "current_step": "S2",
+  "current_step": "S3",
   "completed_steps": [
     "S0",
     "S0_5",
-    "S1"
+    "S1",
+    "S2"
   ],
   "step_attempts": 0,
   "decisions": {
@@ -145,7 +146,7 @@
     "S0": true,
     "S0_5": true,
     "S1": true,
-    "S2": false,
+    "S2": true,
     "S3": false,
     "S4": false,
     "S5": false,
@@ -156,7 +157,7 @@
     "S10": false,
     "S11": false
   },
-  "next_action": "S2: core/signature.py (pure-numpy truncated path signature depth=3, time-aug, lead-lag, torch-free) + core/diversity.py (RFF->Gram->von-Neumann entropy->Vendi->greedy/DPP budget subset). Property tests: Chen identity, shuffle product, known-path analytic. Golden vs vendi-score.",
+  "next_action": "S3: embed/{base,stub,local_onnx,hf_api}.py + io/{lerobot_v3,synthetic}.py (torch-free meta read, pyav frame decode in [video] extra, deterministic stub for CI, weights first-use DL never committed) + doctor honest backend report",
   "blockers": [],
   "wip_quarantine": [],
   "retry_counts": {},
