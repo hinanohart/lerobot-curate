@@ -107,6 +107,10 @@ class LeRobotV3Reader:
         cols: dict[str, list[Any]] = pq.read_table(self._data_path(ep)).to_pydict()  # type: ignore[no-untyped-call]
         return cols
 
+    def episode_columns(self, ep: int) -> dict[str, list[Any]]:
+        """Public accessor for an episode's raw columns (used by materialize)."""
+        return self._read_episode_table(ep)
+
     def episode_frames(self, ep: int, max_frames: int = 8) -> np.ndarray:
         """Representative frames for an episode, shape ``(k, H, W, 3)``.
 

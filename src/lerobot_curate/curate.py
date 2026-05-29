@@ -87,6 +87,33 @@ def _feature_matrix(
     return np.stack([fe.mean_vector for fe in fes]), "embedding"
 
 
+@dataclass
+class PreparedData:
+    refs: list[EpisodeRef]
+    ep_index: list[int]
+    fes: list[FrameEmbedding]
+    image_means: np.ndarray
+    features: np.ndarray
+    feat_mode: str
+
+
+def prepare(reader: LeRobotV3Reader, embedder: Embedder, config: CurateConfig) -> PreparedData:
+    """Embed every episode and build the per-episode diversity feature matrix.
+
+    Shared by ``curate`` and by the standalone CLI stage commands.
+    """
+    refs = reader.episode_refs()
+    fes = _embed_episodes(reader, embedder, refs, config)
+    if not refs:
+        empty = np.zeros((0, 0))
+        return PreparedData(refs, [], fes, empty, empty, "none")
+    image_means = np.stack([fe.mean_vector for fe in fes])
+    features, feat_mode = _feature_matrix(reader, refs, fes, config)
+    return PreparedData(
+        [*refs], [r.episode_index for r in refs], fes, image_means, features, feat_mode
+    )
+
+
 def curate(
     reader: LeRobotV3Reader, embedder: Embedder, config: CurateConfig | None = None
 ) -> tuple[SelectionResult, CurationReport]:

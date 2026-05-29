@@ -3,13 +3,14 @@
   "product": "lerobot-curate",
   "repo_slug": "hinanohart/lerobot-curate",
   "protocol_version": "1.0",
-  "current_step": "S4",
+  "current_step": "S5",
   "completed_steps": [
     "S0",
     "S0_5",
     "S1",
     "S2",
-    "S3"
+    "S3",
+    "S4"
   ],
   "step_attempts": 0,
   "decisions": {
@@ -149,7 +150,7 @@
     "S1": true,
     "S2": true,
     "S3": true,
-    "S4": false,
+    "S4": true,
     "S5": false,
     "S6": false,
     "S7": false,
@@ -158,7 +159,7 @@
     "S10": false,
     "S11": false
   },
-  "next_action": "S4: core/dedup.py (kmeans+cosine>0.99 prune + suboptimal proxies) + core/mislabel.py (cross-modal cosine degrade-first-class) + curate.py pipeline integration",
+  "next_action": "S5: io/materialize.py (derived LeRobot-v3 dataset writer = killer hook) + cli.py (Typer: curate/doctor/report/dedup/diversity/mislabel/select/export-fiftyone) + [project.scripts] entry",
   "blockers": [],
   "wip_quarantine": [],
   "retry_counts": {},
