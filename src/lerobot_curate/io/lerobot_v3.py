@@ -145,6 +145,13 @@ class LeRobotV3Reader:
             raise ValueError(f"episode {ep} has no state/action columns for a signature path")
         return np.concatenate(parts, axis=1)
 
+    def episode_actions(self, ep: int) -> np.ndarray | None:
+        """Action time series ``(T, action_dim)`` if present, else ``None``."""
+        cols = self._read_episode_table(ep)
+        if "action" not in cols:
+            return None
+        return np.asarray(cols["action"], dtype=float)
+
 
 def open_dataset(
     root: str, revision: str | None = None, cache_dir: str | None = None

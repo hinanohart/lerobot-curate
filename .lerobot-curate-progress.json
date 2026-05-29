@@ -3,12 +3,13 @@
   "product": "lerobot-curate",
   "repo_slug": "hinanohart/lerobot-curate",
   "protocol_version": "1.0",
-  "current_step": "S3",
+  "current_step": "S4",
   "completed_steps": [
     "S0",
     "S0_5",
     "S1",
-    "S2"
+    "S2",
+    "S3"
   ],
   "step_attempts": 0,
   "decisions": {
@@ -147,7 +148,7 @@
     "S0_5": true,
     "S1": true,
     "S2": true,
-    "S3": false,
+    "S3": true,
     "S4": false,
     "S5": false,
     "S6": false,
@@ -157,7 +158,7 @@
     "S10": false,
     "S11": false
   },
-  "next_action": "S3: embed/{base,stub,local_onnx,hf_api}.py + io/{lerobot_v3,synthetic}.py (torch-free meta read, pyav frame decode in [video] extra, deterministic stub for CI, weights first-use DL never committed) + doctor honest backend report",
+  "next_action": "S4: core/dedup.py (kmeans+cosine>0.99 prune + suboptimal proxies) + core/mislabel.py (cross-modal cosine degrade-first-class) + curate.py pipeline integration",
   "blockers": [],
   "wip_quarantine": [],
   "retry_counts": {},
