@@ -1,0 +1,44 @@
+# --- secrets / credentials (R11) ---
+.env
+.env.*
+*.pem
+*.key
+*token*
+*secret*
+.hf_token
+
+# --- model weights: NEVER commit (P4/P7) ---
+*.onnx
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.gguf
+*.ckpt
+
+# --- data: do not commit dataset shards ---
+*.parquet
+*.mp4
+*.avi
+data/
+.cache/
+~/.cache/huggingface
+
+# --- python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- local materialize outputs / scratch ---
+/_materialized/
+/_scratch/
+experiments/_wip/**/*.log

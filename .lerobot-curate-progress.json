@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "product": "lerobot-curate",
+  "repo_slug": "hinanohart/lerobot-curate",
+  "protocol_version": "1.0",
+  "current_step": "S0_5",
+  "completed_steps": [
+    "S0"
+  ],
+  "step_attempts": 0,
+  "decisions": {
+    "public_name": "lerobot-curate",
+    "name_fallbacks": [
+      "lerobot-select",
+      "robocurate",
+      "lecurate"
+    ],
+    "license": "Apache-2.0",
+    "a1_caps": [
+      "dedup-suboptimal",
+      "signature-diversity-select",
+      "cross-modal-mislabel"
+    ],
+    "deferred": {
+      "v011": [
+        "OT-cross-dataset-coverage",
+        "S6b-real-if-deferred",
+        "democlean-interop",
+        "fast-extra"
+      ]
+    },
+    "embedder_default": "Xenova/siglip-base-patch16-224-ONNX-int8",
+    "embedder_text_head": true,
+    "embedder_alt": "dinov2-small-image-only",
+    "embedder_weights_policy": "download-on-first-use-never-bundled",
+    "hf_api": "opt-in-off",
+    "ci_embedder": "deterministic-stub",
+    "signature": {
+      "impl": "self-numpy",
+      "depth": 3,
+      "rff_dim": 512,
+      "scope": "intra-dataset-only",
+      "accel_extra": "none-in-a1"
+    },
+    "frame_decode": "pyav-default",
+    "heavy_extras": [
+      "lerobot",
+      "opencv"
+    ],
+    "core_torch_free": true,
+    "diversity": "vendi-von-neumann",
+    "subset": "greedy-DPP-budget",
+    "dedup": "kmeans-cosine-0.99",
+    "mislabel": "cross-modal-cosine-degrade-first-class",
+    "materialize": "derived-lerobot-v3-push-to",
+    "version_tag": "v0.1.0a1",
+    "git_transport": "https-via-gh"
+  },
+  "kill_criteria_results": {
+    "org_dup_check": {
+      "checked": true,
+      "repo_count": 128,
+      "collisions": [
+        "tracecal=validity-gate-different-lane",
+        "flowforge=flow-policy-different-lane"
+      ],
+      "memory_collisions": [],
+      "verdict": "proceed",
+      "evidence": "gh repo list hinanohart --limit 300 -> 128 repos enumerated 2026-05-29; no repo named curate/dedup/select/lerobot-curate; SELECTION/CURATION slot single-owner; siblings demoforge=re-timing, dtwarp=soft-DTW-loss, sketchpolicy=hand-video-gen, screwstitch=OTG, tracecal=validity-gate (frozen arch + synthesis critic confirmed lane non-overlap)"
+    },
+    "OQ1_license": {
+      "checked": true,
+      "verdict": "proceed",
+      "embedder_weights_license": "Xenova/siglip-base-patch16-224-ONNX -> upstream google/siglip Apache-2.0; first-use DL via huggingface_hub, never bundled in git/wheel",
+      "signature": "self-impl-pure-numpy-no-license-risk",
+      "pyav": "LGPL-dynamic-link-NOTICE-documented",
+      "pot": "MIT-deferred-v0.1.1",
+      "onnxruntime": "MIT",
+      "huggingface_hub": "Apache-2.0",
+      "evidence_url": "https://huggingface.co/Xenova/siglip-base-patch16-224 ; https://huggingface.co/google/siglip-base-patch16-224"
+    },
+    "OQ2_prior_art": {
+      "checked": true,
+      "verdict": "proceed",
+      "external_collisions": [
+        "forge(129star)=no dedup/mislabel/cross-dataset",
+        "score_lerobot_episodes(76star)=no dedup",
+        "democlean(MIT)=kNN-MI-scoring-only-no-dedup/diversity/mislabel/materialize",
+        "FAKTUAL(arXiv2603.11634)=no-code-published",
+        "cleanlab/fiftyone=no-LeRobot-trajectory-native-path",
+        "pySigLib=primitives-only-torch"
+      ],
+      "cluster_lanes_confirmed": true,
+      "evidence_url": "gh search repos + org enumeration; Cap4 kNN-MI dropped because democlean ships it (poach avoidance)"
+    },
+    "OQ3_data_availability": {
+      "checked": true,
+      "verdict": "proceed-tentative",
+      "dataset_id": "lerobot/pusht (candidate small public LeRobot v3)",
+      "cpu_feasible": true,
+      "evidence_url": "S6b confirms; degrade to synthetic-only + verbatim disclaimer = honest-DONE pre-authorized per protocol 1.2/4"
+    }
+  },
+  "measured": {
+    "dedup_recall": null,
+    "dedup_precision": null,
+    "diversity_monotonic": null,
+    "mislabel_precision": null,
+    "negative_fpr": null,
+    "dataset": {
+      "id": null,
+      "n": null,
+      "mode": null,
+      "source": null
+    },
+    "env": {
+      "hw": null,
+      "os": null,
+      "python": null,
+      "date": null,
+      "seed": null,
+      "version": null
+    },
+    "results_path": null,
+    "disclaimer_required": null,
+    "reproduced_in_clean_clone": false
+  },
+  "critic": {
+    "verdict": null,
+    "rounds": 0,
+    "blockers_open": [],
+    "verdict_path": null
+  },
+  "publish": {
+    "name_checked": true,
+    "repo_created": false,
+    "branch_protected": false,
+    "tagged": false,
+    "released": false,
+    "pypi": "deferred"
+  },
+  "checklist": {
+    "S0": true,
+    "S0_5": false,
+    "S1": false,
+    "S2": false,
+    "S3": false,
+    "S4": false,
+    "S5": false,
+    "S6": false,
+    "S7": false,
+    "S8": false,
+    "S9": false,
+    "S10": false,
+    "S11": false
+  },
+  "next_action": "S0.5 scaffold: src layout, pyproject (hatchling), LICENSE Apache-2.0, NOTICE matrix, .gitignore (*.onnx etc), README stub (all numbers MEASURED@S6 placeholder), verify_step.py + heartbeat.py, CI yaml skeleton, git init",
+  "blockers": [],
+  "wip_quarantine": [],
+  "retry_counts": {},
+  "circuit_breaker": {
+    "max_attempts_per_step": 5,
+    "critic_max_rounds": 3,
+    "max_total_hours": 168
+  },
+  "session_lock": {
+    "pid": 3462528,
+    "started_at_utc": "2026-05-29T03:24:06Z",
+    "last_heartbeat_utc": "2026-05-29T03:30:06Z"
+  },
+  "ci_last_green_sha": null,
+  "fallback_log": [],
+  "human_pause": {
+    "paused": false,
+    "reason": null,
+    "since": null
+  },
+  "pivot_history": [],
+  "status": "in_progress"
+}
