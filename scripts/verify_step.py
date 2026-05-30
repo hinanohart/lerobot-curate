@@ -80,7 +80,7 @@ def check_S0_5() -> None:
         ".github/workflows/ci.yml",
     ):
         _exists(f)
-    _contains("LICENSE", "Apache License")
+    _contains("LICENSE", "MIT License")
     notice = _exists("NOTICE").read_text(errors="ignore").lower()
     if "never bundled" not in notice and "never committed" not in notice:
         raise CheckError("NOTICE does not state weights are never bundled/committed")
