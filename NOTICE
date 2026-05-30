@@ -1,0 +1,58 @@
+lerobot-curate
+Copyright 2026 hinanohart
+
+This product is licensed under the MIT License (see LICENSE).
+
+================================================================================
+Third-party components and model weights
+================================================================================
+
+lerobot-curate does NOT bundle any model weights or third-party source code in
+its source tree, sdist, or wheel. The components below are pulled at install
+time (Python dependencies) or downloaded on first use (model weights). Each
+retains its own license.
+
+--------------------------------------------------------------------------------
+Model weights (downloaded on first use via huggingface_hub; NEVER bundled)
+--------------------------------------------------------------------------------
+Default embedder: Xenova/siglip-base-patch16-224 (ONNX, int8)
+    The Xenova ONNX repackaging is a conversion of google/siglip-base-patch16-224.
+    Upstream google/siglip is released under the Apache License 2.0:
+        https://huggingface.co/google/siglip-base-patch16-224
+    Weights are fetched to the local Hugging Face cache on first use and are
+    never committed to git nor included in any distributed artifact of this
+    project. If you do not run the real embedder, no weights are downloaded.
+    Fallback under evaluation for v0.1.1: onnx-community/siglip2-base-patch16-224.
+
+--------------------------------------------------------------------------------
+Python dependencies (installed by pip; not redistributed by this project)
+--------------------------------------------------------------------------------
+numpy ................. BSD-3-Clause
+scipy ................. BSD-3-Clause
+scikit-learn .......... BSD-3-Clause
+huggingface_hub ....... Apache-2.0
+pyarrow ............... Apache-2.0
+typer ................. MIT
+rich .................. MIT
+
+Optional extras (installed only on request):
+onnxruntime [onnx] .... MIT
+pillow [onnx] ......... HPND (PIL Software License)
+av (PyAV) [video] ..... BSD-3-Clause wrapper around FFmpeg libraries, which are
+                        licensed under LGPL-2.1+ (and GPL components if so built).
+                        PyAV is linked dynamically and is not bundled with this
+                        project; install it separately under its own terms.
+lerobot [lerobot] ..... Apache-2.0 (pulls torch; isolated in an optional extra)
+opencv-python-headless [opencv] ... Apache-2.0
+fiftyone [fiftyone] ... Apache-2.0
+POT (deferred v0.1.1) . MIT
+
+--------------------------------------------------------------------------------
+Method attribution (algorithms re-implemented from published papers)
+--------------------------------------------------------------------------------
+The embedding dedup / suboptimal-detection approach is a CPU reference
+re-implementation inspired by SCIZOR (arXiv:2505.22626). The signature-kernel
+trajectory-diversity approach is a CPU reference re-implementation inspired by
+FAKTUAL (arXiv:2603.11634). This project does NOT reproduce the policy-learning
+performance numbers reported in those papers (which require GPU policy training
+and are out of scope). See README.md for the full scope disclaimer.
