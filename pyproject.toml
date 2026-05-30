@@ -8,12 +8,12 @@ dynamic = ["version"]
 description = "CPU-only curation/selection of LeRobot v3 robot datasets before VLA fine-tuning: embedding dedup, signature-kernel diversity subset selection, and cross-modal mislabel flagging."
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "Apache-2.0" }
+license = { text = "MIT" }
 authors = [{ name = "hinanohart" }]
 keywords = ["lerobot", "robotics", "vla", "dataset", "curation", "dedup", "diversity", "signature-kernel"]
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
-    "License :: OSI Approved :: Apache Software License",
+    "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
@@ -62,7 +62,7 @@ path = "src/lerobot_curate/_version.py"
 packages = ["src/lerobot_curate"]
 
 [tool.hatch.build.targets.sdist]
-include = ["src/lerobot_curate", "LICENSE", "NOTICE", "README.md"]
+include = ["src/lerobot_curate", "LICENSE", "README.md"]
 exclude = ["*.onnx", "*.safetensors", "*.bin", "*.pt", "*.parquet"]
 
 [tool.ruff]

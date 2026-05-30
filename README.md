@@ -90,5 +90,5 @@ _mode: synthetic; python 3.12.3; lerobot-curate 0.1.0a1; seed 0_
 
 ## License
 
-Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE) for third-party
+MIT. See [LICENSE](LICENSE) for third-party
 component and model-weight attribution.
